@@ -15,4 +15,12 @@ local.properties
 .externalNativeBuild/
 .cxx/
 
-Thumbs.db
+Thumbs.db*.onnx
+
+*.onnx
+*.pt
+*.pth
+outputs/
+data/
+__pycache__/
+.venv/

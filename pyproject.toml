@@ -18,7 +18,9 @@ dependencies = [
 
     # --- 배포·최적화 (온디바이스 검증) ---
     "onnx>=1.17.0",
-    "onnxruntime-gpu>=1.20.0",
+    "onnxruntime-gpu==1.27.0",
+    # 원본: "onnxruntime-gpu>=1.20.0"
+    # WSL/Linux 호환을 위해 1.27.0으로 고정
     "onnxslim>=0.1.40",
 
     # --- 데이터 처리 ---
