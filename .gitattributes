@@ -1,0 +1,5 @@
+
+# Preserve original experiment bytes so published SHA-256 values survive checkout.
+docs/experiments/*/results.csv -text whitespace=cr-at-eol
+docs/experiments/*/progress.json -text whitespace=cr-at-eol
+docs/experiments/preliminary/*.csv -text whitespace=cr-at-eol

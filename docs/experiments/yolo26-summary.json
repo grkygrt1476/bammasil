@@ -1,0 +1,375 @@
+{
+  "record_type": "existing_run_summary",
+  "verified_on": "2026-11-23",
+  "metric_source": "completed progress.json: final built-in best-checkpoint validation, not separate evaluation/dev.json",
+  "data_summary": {
+    "legacy_c4d": {
+      "train": {
+        "images": 10919,
+        "boxes": {
+          "0": 16046,
+          "2": 6108,
+          "1": 2670
+        },
+        "images_per_class": {
+          "0": 7062,
+          "2": 1839,
+          "1": 2670
+        },
+        "empty_labels": 926,
+        "dimensions": {
+          "640x360": 3430,
+          "1024x640": 4819,
+          "512x512": 2670
+        }
+      },
+      "val": {
+        "images": 787,
+        "boxes": {
+          "2": 213,
+          "0": 599,
+          "1": 424
+        },
+        "images_per_class": {
+          "2": 61,
+          "0": 279,
+          "1": 424
+        },
+        "empty_labels": 74,
+        "dimensions": {
+          "640x360": 151,
+          "1024x640": 212,
+          "512x512": 424
+        }
+      }
+    },
+    "bollard_val_2146": {
+      "val": {
+        "images": 2146,
+        "boxes": {
+          "2": 6988,
+          "0": 4736
+        },
+        "images_per_class": {
+          "2": 2146,
+          "0": 1455
+        },
+        "empty_labels": 0,
+        "dimensions": {
+          "640x360": 2146
+        }
+      }
+    },
+    "nightowls_rec34": {
+      "val": {
+        "images": 1001,
+        "boxes": {
+          "0": 1576
+        },
+        "images_per_class": {
+          "0": 1001
+        },
+        "empty_labels": 0,
+        "dimensions": {
+          "1024x640": 1001
+        }
+      }
+    },
+    "overlap": {
+      "train_dev_exact_content": 0,
+      "train_bollard_exact_content": 0,
+      "dev_bollard_exact_content": 61,
+      "train_rec34_source_id": 0
+    },
+    "bollard_dev_disjoint": {
+      "images": 2085,
+      "removed": 61,
+      "caveat": "Dev-disjoint historical benchmark, not a previously unseen test set."
+    },
+    "limitations": [
+      "Legacy source label completeness has not been manually re-annotated.",
+      "AIHub is_night is invalid; brightness alone is not proof of night.",
+      "bollard_val_2146 overlaps dev validation and is NOT an independent final test.",
+      "rec34 is a historical regression benchmark, person-only labels, not a new blind test.",
+      "rec34 follows legacy ignore-only frame exclusion; mixed ignore regions are not native-evaluator masked.",
+      "No verified night bollard or distant pedestrian-view stairs benchmark is included."
+    ],
+    "status": "passed"
+  },
+  "runs": {
+    "n640": {
+      "run_id": "outputs/overnight_20261007_071216/yolo26n",
+      "settings": {
+        "imgsz": 640,
+        "epochs": 50,
+        "batch": 16,
+        "seed": 0,
+        "optimizer": "AdamW",
+        "lr0": 0.001,
+        "lrf": 0.01,
+        "weight_decay": 0.0005,
+        "nbs": 64,
+        "warmup_epochs": 3.0,
+        "patience": 0,
+        "amp": true,
+        "deterministic": true,
+        "workers": 4,
+        "rect": false,
+        "mosaic": 1.0,
+        "close_mosaic": 10,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "hsv_h": 0.01,
+        "hsv_s": 0.4,
+        "hsv_v": 0.3,
+        "degrees": 0.0,
+        "translate": 0.1,
+        "scale": 0.5,
+        "fliplr": 0.5,
+        "flipud": 0.0,
+        "multi_scale": 0.0
+      },
+      "metrics": {
+        "metrics/precision(B)": 0.8954211581433817,
+        "metrics/recall(B)": 0.786974404118241,
+        "metrics/mAP50(B)": 0.8563676215763317,
+        "metrics/mAP50-95(B)": 0.5988370077721172
+      },
+      "elapsed_seconds": 5004.108296699997,
+      "peak_allocated_gib": 2.418646812438965,
+      "best_sha256": "8d3343a61f3de867e68fb63a60681951bd934469883ef625ff238ba69de7d8ac",
+      "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+      "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+      "versions": {
+        "torch": "2.13.0+cu130",
+        "ultralytics": "8.4.106"
+      },
+      "source_file_sha256": {
+        "run_manifest.json": "7ce4e50bc12f99a8ab7a190a943db22e5474af93c35fa83e43c4d18a47fd3e6f",
+        "progress.json": "99038a530e0bd506c6e17301bca6ee096406c59c51eccc0f551b822f9e79f011",
+        "training_complete.json": "41036dea9591761000606b1af58b4cd069807f33ddf7c36bfe2e43696c5fdfc9"
+      }
+    },
+    "s640": {
+      "run_id": "outputs/candidates_20261007_0928/s640_seed0_50ep/yolo26s",
+      "settings": {
+        "imgsz": 640,
+        "epochs": 50,
+        "batch": 16,
+        "seed": 0,
+        "optimizer": "AdamW",
+        "lr0": 0.001,
+        "lrf": 0.01,
+        "weight_decay": 0.0005,
+        "nbs": 64,
+        "warmup_epochs": 3.0,
+        "patience": 0,
+        "amp": true,
+        "deterministic": true,
+        "workers": 4,
+        "rect": false,
+        "mosaic": 1.0,
+        "close_mosaic": 10,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "hsv_h": 0.01,
+        "hsv_s": 0.4,
+        "hsv_v": 0.3,
+        "degrees": 0.0,
+        "translate": 0.1,
+        "scale": 0.5,
+        "fliplr": 0.5,
+        "flipud": 0.0,
+        "multi_scale": 0.0
+      },
+      "metrics": {
+        "metrics/precision(B)": 0.8796596385739708,
+        "metrics/recall(B)": 0.8351754751142418,
+        "metrics/mAP50(B)": 0.8848918915443108,
+        "metrics/mAP50-95(B)": 0.6382244115361809
+      },
+      "elapsed_seconds": 5279.840029200001,
+      "peak_allocated_gib": 4.515932559967041,
+      "best_sha256": "63a42efed9d4be54e8e3a0f6f2b1704ff8c5e2744fca12968f6e7a5993f0390b",
+      "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+      "pretrained_sha256": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+      "versions": {
+        "torch": "2.13.0+cu130",
+        "ultralytics": "8.4.106"
+      },
+      "source_file_sha256": {
+        "run_manifest.json": "43d6056bbb86b0d7b547370c00128548bc6ee386a080b25032da30c0d8b867b4",
+        "progress.json": "ff19c47f238246e40d9b8644356390afc9755a41a32c75aa469e91d040ec9152",
+        "training_complete.json": "415677719bf8206af5ffb9adb4e4f1f3fa5825ce65e038ea7d51fd4d639f108d"
+      }
+    },
+    "m640": {
+      "run_id": "outputs/overnight_20261007_071216/yolo26m",
+      "settings": {
+        "imgsz": 640,
+        "epochs": 50,
+        "batch": 16,
+        "seed": 0,
+        "optimizer": "AdamW",
+        "lr0": 0.001,
+        "lrf": 0.01,
+        "weight_decay": 0.0005,
+        "nbs": 64,
+        "warmup_epochs": 3.0,
+        "patience": 0,
+        "amp": true,
+        "deterministic": true,
+        "workers": 4,
+        "rect": false,
+        "mosaic": 1.0,
+        "close_mosaic": 10,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "hsv_h": 0.01,
+        "hsv_s": 0.4,
+        "hsv_v": 0.3,
+        "degrees": 0.0,
+        "translate": 0.1,
+        "scale": 0.5,
+        "fliplr": 0.5,
+        "flipud": 0.0,
+        "multi_scale": 0.0
+      },
+      "metrics": {
+        "metrics/precision(B)": 0.8922970316253463,
+        "metrics/recall(B)": 0.8334160183578074,
+        "metrics/mAP50(B)": 0.8859535086835848,
+        "metrics/mAP50-95(B)": 0.6473845572472211
+      },
+      "elapsed_seconds": 7097.9744766,
+      "peak_allocated_gib": 8.55824327468872,
+      "best_sha256": "5bb83f68f804c9dc083197a00a29b4a624e941fd84315684cfa0888de2894d92",
+      "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+      "pretrained_sha256": "401cea9ab23ad19246ff7744859816bc599f350e93c9dd30367b6f0a0745d0b7",
+      "versions": {
+        "torch": "2.13.0+cu130",
+        "ultralytics": "8.4.106"
+      },
+      "source_file_sha256": {
+        "run_manifest.json": "95756ec39ec8fbc1d9e49482e36c3365ad5809d30974f466ed542a07050d0f2d",
+        "progress.json": "e8012ea10b38dd810981e9e5f4723cb0a8c5a2d3ca2bd4fb8f12d6c1237ee02a",
+        "training_complete.json": "6e4e287d7580678fe76fb37b003f90526749229e2b7bf5f9be6539014116a749"
+      }
+    },
+    "n960": {
+      "run_id": "outputs/candidates_20261007_0928/n960_seed0_50ep/yolo26n",
+      "settings": {
+        "imgsz": 960,
+        "epochs": 50,
+        "batch": 16,
+        "seed": 0,
+        "optimizer": "AdamW",
+        "lr0": 0.001,
+        "lrf": 0.01,
+        "weight_decay": 0.0005,
+        "nbs": 64,
+        "warmup_epochs": 3.0,
+        "patience": 0,
+        "amp": true,
+        "deterministic": true,
+        "workers": 4,
+        "rect": false,
+        "mosaic": 1.0,
+        "close_mosaic": 10,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "hsv_h": 0.01,
+        "hsv_s": 0.4,
+        "hsv_v": 0.3,
+        "degrees": 0.0,
+        "translate": 0.1,
+        "scale": 0.5,
+        "fliplr": 0.5,
+        "flipud": 0.0,
+        "multi_scale": 0.0
+      },
+      "metrics": {
+        "metrics/precision(B)": 0.8829174470539023,
+        "metrics/recall(B)": 0.8275409511517798,
+        "metrics/mAP50(B)": 0.8713663521396443,
+        "metrics/mAP50-95(B)": 0.6199464230491675
+      },
+      "elapsed_seconds": 6140.895642100004,
+      "peak_allocated_gib": 5.449350357055664,
+      "best_sha256": "7654581a5f532f1774b3faff009ab964171138fecae3efe61261a9e4c0b6bb6f",
+      "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+      "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+      "versions": {
+        "torch": "2.13.0+cu130",
+        "ultralytics": "8.4.106"
+      },
+      "source_file_sha256": {
+        "run_manifest.json": "ede507789232aad0d8d2d3da21d3df6f8aa4f8ec0744e9c348118eef9e728661",
+        "progress.json": "4986b844353b71a24965f39e1616fb1fb2464334c5f938a8ed47d6af43dcb923",
+        "training_complete.json": "e2f158880179ab373b8f87504f5d526db604a802f2e916e4882f1ecb70191cec"
+      }
+    },
+    "s960": {
+      "run_id": "outputs/s960_20261007_1506/attempt1_batch16/yolo26s",
+      "settings": {
+        "imgsz": 960,
+        "epochs": 50,
+        "batch": 16,
+        "seed": 0,
+        "optimizer": "AdamW",
+        "lr0": 0.001,
+        "lrf": 0.01,
+        "weight_decay": 0.0005,
+        "nbs": 64,
+        "warmup_epochs": 3.0,
+        "patience": 0,
+        "amp": true,
+        "deterministic": true,
+        "workers": 4,
+        "rect": false,
+        "mosaic": 1.0,
+        "close_mosaic": 10,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "hsv_h": 0.01,
+        "hsv_s": 0.4,
+        "hsv_v": 0.3,
+        "degrees": 0.0,
+        "translate": 0.1,
+        "scale": 0.5,
+        "fliplr": 0.5,
+        "flipud": 0.0,
+        "multi_scale": 0.0
+      },
+      "metrics": {
+        "metrics/precision(B)": 0.903043325145973,
+        "metrics/recall(B)": 0.8414587472990666,
+        "metrics/mAP50(B)": 0.9012340216382305,
+        "metrics/mAP50-95(B)": 0.6663179825662283
+      },
+      "elapsed_seconds": 8075.973652300003,
+      "peak_allocated_gib": 10.04106092453003,
+      "best_sha256": "aa8905fe266eb9f578ef868d4e97c596d57f2e90a6319f1df8da4f6a89694823",
+      "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+      "pretrained_sha256": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+      "versions": {
+        "torch": "2.13.0+cu130",
+        "ultralytics": "8.4.106"
+      },
+      "source_file_sha256": {
+        "run_manifest.json": "03c22956c6e42c91f8c638860a4d5c03faa0c3769860698821da7a6bd3b0b7bf",
+        "progress.json": "224a389bed3a71c42de501718ed8a9e3d57d1a0d1fcd3aa0cd797def44ef8a02",
+        "training_complete.json": "55728d74810b349ec00ec6fed8242532a732fec5fb3a77566e01018ff0a0562f"
+      }
+    }
+  },
+  "historical_negative_training": {
+    "source": "밤마실_본선발표.pdf",
+    "page": 26,
+    "source_sha256": "cd1ffa313d2704eb426e6e5169cd0380fc5fa9a87908be37581c2c0230d97fc0",
+    "background_images_added": 1163,
+    "night_stairs_false_detections_before": 22,
+    "night_stairs_false_detections_after": 9,
+    "verification": "Transcribed from presentation; original evaluation protocol and raw detections not revalidated."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "checked_on": "2026-11-23",
+  "environment": "Existing Windows training environment; RTX 4080 SUPER",
+  "data_preparation": {
+    "legacy_c4d": "passed",
+    "bollard_val_2146": "passed",
+    "nightowls_rec34": "passed",
+    "bollard_dev_disjoint": "passed"
+  },
+  "training_check_only": {
+    "n640": "passed",
+    "s640": "passed",
+    "m640": "passed",
+    "n960": "passed",
+    "s960": "passed"
+  },
+  "evaluation_check_only": {
+    "run": "n640",
+    "dataset": "legacy_c4d",
+    "status": "passed"
+  },
+  "unit_tests": {
+    "passed": 3,
+    "scope": [
+      "dataset fingerprint sensitivity",
+      "missing labels and invalid boxes",
+      "data modification after preparation"
+    ]
+  },
+  "training_or_evaluation_executed": false,
+  "fresh_environment_install_tested": false,
+  "other_operating_systems_tested": false
+}

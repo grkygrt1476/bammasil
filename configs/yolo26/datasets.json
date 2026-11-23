@@ -1,0 +1,31 @@
+{
+  "legacy_c4d": {
+    "images": 11706,
+    "content_sha256": "b2ab56bad005871c8740813d963a65511be54cd1f234e83a275431184787fc99",
+    "split_counts": {
+      "train": 10919,
+      "val": 787
+    }
+  },
+  "bollard_val_2146": {
+    "images": 2146,
+    "content_sha256": "cf672c07426c4a12fa6cb22050272cb0247642cb3aa3bd570cad8403c2c100b3",
+    "split_counts": {
+      "val": 2146
+    }
+  },
+  "nightowls_rec34": {
+    "images": 1001,
+    "content_sha256": "bd07b68a26a139d94ea048a32f4da96f010707cd9900476326fd7a2b4a717a92",
+    "split_counts": {
+      "val": 1001
+    }
+  },
+  "bollard_dev_disjoint": {
+    "images": 2085,
+    "content_sha256": "68a1e8002704519b42dd9c4dd7ae9324ed9a3395f04e3229056617c20ad55f9a",
+    "split_counts": {
+      "val": 2085
+    }
+  }
+}

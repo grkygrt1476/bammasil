@@ -24,3 +24,12 @@ outputs/
 data/
 __pycache__/
 .venv/
+
+.data
+artifacts/
+
+# Local training runtime and private audit records
+.runtime/
+reports/
+
+.venv-training/

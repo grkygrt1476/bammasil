@@ -1,0 +1,15 @@
+{
+  "state": "complete",
+  "epoch": 50,
+  "epochs": 50,
+  "epoch_seconds": 120.69220380000479,
+  "elapsed_seconds": 6138.698450800002,
+  "peak_allocated_gib": 5.449350357055664,
+  "metrics": {
+    "metrics/precision(B)": 0.8829174470539023,
+    "metrics/recall(B)": 0.8275409511517798,
+    "metrics/mAP50(B)": 0.8713663521396443,
+    "metrics/mAP50-95(B)": 0.6199464230491675
+  },
+  "updated": "2026-10-07T13:47:56.120665+09:00"
+}

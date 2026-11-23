@@ -1,0 +1,27 @@
+{
+  "proposal": {
+    "file": "[2026년 제8회 K-디지털 트레이닝 해커톤] 예선심사과제_밤마실.pdf",
+    "sha256": "d062ac944b458310fffc1e97ffc60274f7be9593be87b7336e2f4e76f560c143",
+    "pages": [
+      4,
+      5,
+      6
+    ]
+  },
+  "data": "docs/experiments/preliminary/benchmark.csv",
+  "generator": "tools/plot_preliminary_results.py",
+  "figures": [
+    {
+      "file": "proposal-bollard-size.png",
+      "sha256": "5186354372fba9b75f881247ad20569b14d55c0eda3fbe17bdca99e9c74c10be"
+    },
+    {
+      "file": "proposal-learning-curves.png",
+      "sha256": "d9e7687c3f7167cce4f333abc76d6d975b2ac8562929d334d95e359f320d5498"
+    },
+    {
+      "file": "proposal-model-resolution.png",
+      "sha256": "38051d8d02ffde7e2e9376de6e3311d38dcd751609af6e2886724fc613cb02d3"
+    }
+  ]
+}

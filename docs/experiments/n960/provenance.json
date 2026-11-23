@@ -1,0 +1,21 @@
+{
+  "source_run_id": "outputs/candidates_20261007_0928/n960_seed0_50ep/yolo26n",
+  "source_sha256": {
+    "run_manifest.json": "ede507789232aad0d8d2d3da21d3df6f8aa4f8ec0744e9c348118eef9e728661",
+    "args.yaml": "714eb46a486c6e6a9f8297c8ecca8b9695be2642dff129ff5e823c6d3d91c0ea",
+    "progress.json": "4986b844353b71a24965f39e1616fb1fb2464334c5f938a8ed47d6af43dcb923",
+    "training_complete.json": "e2f158880179ab373b8f87504f5d526db604a802f2e916e4882f1ecb70191cec",
+    "results.csv": "f8d3b41938f4e1dd97f090218ba55812c014bea027fc339781d107c6106d1ab9",
+    "results.png": "39df5e752d7ad370481538231150d4a16671a66724a0cc89a43bf0cf6eb89249"
+  },
+  "checkpoint_sha256": "7654581a5f532f1774b3faff009ab964171138fecae3efe61261a9e4c0b6bb6f",
+  "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+  "published_sha256": {
+    "progress.json": "4986b844353b71a24965f39e1616fb1fb2464334c5f938a8ed47d6af43dcb923",
+    "results.csv": "f8d3b41938f4e1dd97f090218ba55812c014bea027fc339781d107c6106d1ab9",
+    "results.png": "39df5e752d7ad370481538231150d4a16671a66724a0cc89a43bf0cf6eb89249",
+    "settings.json": "7871b083529f94a5ec7e984af33adef70fa72675dd353b82389f854128962b49",
+    "training_complete.json": "42fe17dfca7756179c7706f8f6d19735f0f3b18d5744b00399e3128802c41dcd"
+  }
+}

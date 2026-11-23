@@ -1,0 +1,21 @@
+{
+  "source_run_id": "outputs/s960_20261007_1506/attempt1_batch16/yolo26s",
+  "source_sha256": {
+    "run_manifest.json": "03c22956c6e42c91f8c638860a4d5c03faa0c3769860698821da7a6bd3b0b7bf",
+    "args.yaml": "078ee5385d6f6be5164c4cd59213de99021c1b89885ec8086cafb28aadfb512c",
+    "progress.json": "224a389bed3a71c42de501718ed8a9e3d57d1a0d1fcd3aa0cd797def44ef8a02",
+    "training_complete.json": "55728d74810b349ec00ec6fed8242532a732fec5fb3a77566e01018ff0a0562f",
+    "results.csv": "d81e8fca562ab3183589d8b9b6ad26753341e4f1a8254058cd8bb82672a12be4",
+    "results.png": "c3a0ccd52f24e1c33f2ad662f7f450f086fc73f519c79eeea46d35b57f7b0b80"
+  },
+  "checkpoint_sha256": "aa8905fe266eb9f578ef868d4e97c596d57f2e90a6319f1df8da4f6a89694823",
+  "pretrained_sha256": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "data_manifest_sha256": "cfb4b345a4d7092431483bd758aeb6a1db1ea2a85a67c7e297e6b647c13cf962",
+  "published_sha256": {
+    "progress.json": "224a389bed3a71c42de501718ed8a9e3d57d1a0d1fcd3aa0cd797def44ef8a02",
+    "results.csv": "d81e8fca562ab3183589d8b9b6ad26753341e4f1a8254058cd8bb82672a12be4",
+    "results.png": "c3a0ccd52f24e1c33f2ad662f7f450f086fc73f519c79eeea46d35b57f7b0b80",
+    "settings.json": "79be9b88f1dc7dbeca12635798555ac67388bdd01f8433ff02956a42e4d7cba9",
+    "training_complete.json": "f9a4a368bbc50e8dc2299d5b2b4451f38dc2e9e6ad6b073bb6e729e192ba2c62"
+  }
+}

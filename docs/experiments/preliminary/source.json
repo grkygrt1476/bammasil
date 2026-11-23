@@ -1,0 +1,32 @@
+{
+  "benchmark": {
+    "source": "kdt_ref/outputs/benchmark_c4d.csv",
+    "sha256": "218268171c54163cb1d3d9b0770a6ccd198ba4c427eede696a4cf5f838a15e16"
+  },
+  "curves": [
+    {
+      "file": "c4d_11n_640.csv",
+      "sha256": "571c024f6a64c038a439818cb8e55a329c389bc4a009d7818aa6b601ec8da992"
+    },
+    {
+      "file": "c4d_26n_640.csv",
+      "sha256": "8725277f67c4e1f8dbff4b77d006228e2d4a740b59bbd3f1a720ca4c8017c16f"
+    },
+    {
+      "file": "c4d_11s_640.csv",
+      "sha256": "2c04eaa4e27184d19cfe8b3b10401eb401839c09b24da8349deaf6b489fcfb5d"
+    },
+    {
+      "file": "c4d_26n_960.csv",
+      "sha256": "f8e9ebb4ae821a0177c084da685cfd549aa510f95d356b3839068f9acd9b9e83"
+    },
+    {
+      "file": "c4d_11n_640_noneg.csv",
+      "sha256": "77640bac01421550d85550054f96c2d1e5280ceaf1da251b94687a548d3ca334"
+    },
+    {
+      "file": "c4d_11n_960.csv",
+      "sha256": "d6a4fe4741418f4fdc644c9991af495c46116594178ee6e0a57e72aaeb5dd1fa"
+    }
+  ]
+}

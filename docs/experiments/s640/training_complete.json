@@ -1,0 +1,7 @@
+{
+  "state": "complete",
+  "elapsed_seconds": 5279.840029200001,
+  "best": "weights/best.pt",
+  "best_sha256": "63a42efed9d4be54e8e3a0f6f2b1704ff8c5e2744fca12968f6e7a5993f0390b",
+  "peak_allocated_gib": 4.515932559967041
+}

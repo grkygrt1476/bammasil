@@ -1,0 +1,50 @@
+{
+  "source": "밤마실_시연영상.mp4",
+  "kind": "existing team app demonstration, not YOLO26 benchmark",
+  "assets": [
+    {
+      "file": "bollard-demo.gif",
+      "start_seconds": 24,
+      "duration_seconds": 4,
+      "fps": 6,
+      "width": 800
+    },
+    {
+      "file": "lighting-comparison.jpg",
+      "time_seconds": 15.5,
+      "width": 1280
+    },
+    {
+      "file": "cardboard-demo.jpg",
+      "time_seconds": 34.2,
+      "width": 1280
+    }
+  ],
+  "changes": "Extracted and resized; GIF frame rate and palette reduced. No new detection results added.",
+  "presentation_assets": [
+    {
+      "file": "person-detection.jpg",
+      "source": "밤마실_본선발표.pdf",
+      "page": 15,
+      "embedded_image": "FXX140.jpg",
+      "sha256": "59cd4b53f5e402e4656d0838f1e17114996942e7e22d65cfff3d9da39b277367",
+      "changes": "Original embedded JPEG extracted without re-encoding or new annotations."
+    },
+    {
+      "file": "stairs-detection.jpg",
+      "source": "밤마실_본선발표.pdf",
+      "page": 15,
+      "embedded_image": "FXX138.jpg",
+      "sha256": "335526b6a6a75bc6960768ac4c11f6d32daf4a4b2186a469f001bda600688cb5",
+      "changes": "Original embedded JPEG extracted without re-encoding or new annotations."
+    },
+    {
+      "file": "bollard-detection.jpg",
+      "source": "밤마실_본선발표.pdf",
+      "page": 15,
+      "embedded_image": "FXX139.jpg",
+      "sha256": "b54619d436973ff76160bbab344fab50b8afac30449f24e80a035ec6993a3810",
+      "changes": "Original embedded JPEG extracted without re-encoding or new annotations."
+    }
+  ]
+}
