@@ -14,23 +14,20 @@ colors = ["#64748b", "#2563eb", "#0f766e", "#7c3aed", "#94a3b8", "#b45309"]
 labels = [f"{r['model']} / {r['imgsz']}" + (" / no negatives" if "noneg" in r['name'] else "") for r in rows]
 plt.rcParams.update({"font.family":"DejaVu Sans", "font.size":11, "axes.spines.top":False, "axes.spines.right":False, "axes.titleweight":"bold", "figure.facecolor":"white"})
 
-fig, axes = plt.subplots(1, 2, figsize=(12, 5.5), layout="constrained", sharey=True)
-y = np.arange(len(rows))
-bar_colors = ["#2563eb" if r["model"] == "YOLO26n" else "#94a3b8" for r in rows]
-for ax, key, title, limit, fmt in [(axes[0], "v2146_map50", "Accuracy / mAP50", 1.0, ".4f"), (axes[1], "inf_ms", "Inference / ms per image", 2.9, ".2f")]:
-    values = [float(r[key]) for r in rows]
-    ax.barh(y, values, height=.53, color=bar_colors)
-    for i, value in enumerate(values):
-        ax.text(value + limit*.025, i, format(value, fmt), va="center", fontsize=12, fontweight="bold", color="#0f172a")
-    ax.set_xlim(0, limit)
-    ax.set_title(title, loc="left", pad=18, fontsize=14)
-    ax.set_axisbelow(True)
-    ax.grid(axis="x", alpha=.15)
-    ax.spines["left"].set_visible(False)
-    ax.spines["bottom"].set_visible(False)
-    ax.tick_params(axis="y", length=0)
-axes[0].set_yticks(y, [label.replace(" / no negatives", " (no negatives)") for label in labels])
-axes[0].invert_yaxis()
+fig, ax = plt.subplots(figsize=(11, 6), layout="constrained")
+positions = [(.88, .732), (1.26, .787), (1.50, .821), (2.10, .858), (1.48, .750), (2.16, .810)]
+for i, row in enumerate(rows):
+    x, y = float(row["inf_ms"]), float(row["v2146_map50"])
+    ax.scatter(x, y, s=115, color=colors[i], edgecolor="white", linewidth=1.5, zorder=4)
+    label = labels[i].replace(" / no negatives", " (no negatives)")
+    ax.annotate(f"{label}\n{x:.2f} ms | {y:.4f}", (x, y), xytext=positions[i],
+                textcoords="data", fontsize=11, color=colors[i],
+                arrowprops={"arrowstyle": "-", "color": colors[i], "alpha": .5, "lw": 1},
+                bbox={"facecolor": "white", "edgecolor": "none", "pad": 3}, zorder=5)
+ax.set(xlabel="Inference time (ms / image, desktop)", ylabel="mAP50 (person + bollard)",
+       xlim=(.8, 2.9), ylim=(.72, .88))
+ax.set_title("Model accuracy vs. inference time", loc="left", pad=18, fontsize=16)
+ax.grid(alpha=.18)
 fig.savefig(OUT/'proposal-model-resolution.png',dpi=180)
 plt.close(fig)
 
