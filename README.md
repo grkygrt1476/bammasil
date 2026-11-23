@@ -36,16 +36,29 @@
 
 ## 앱 구조
 
-탐지는 원본 영상으로, 화면 표시는 밝기·대비를 개선한 영상으로 처리합니다.
+처음에는 저조도 개선 후 탐지하는 순차 구조를 계획했습니다. 비교 실험에서 개선 영상을 탐지에 넣었을 때 계단 오탐이 늘어, **원본 탐지와 개선 화면 표시를 분리**했습니다. 카메라 입력부터 탐지·강조까지 스마트폰 안에서 처리합니다.
 
 ```mermaid
 flowchart LR
-    camera["CameraX"] --> detect["YOLO · ONNX Runtime"]
+    camera["CameraX"] --> preprocess["회전 · Letterbox"]
+    preprocess --> detect["YOLO · ONNX Runtime"]
     camera --> enhance["Drago · CLAHE"]
     detect --> stabilize["표시 안정화 · FSM / IIR"]
     stabilize --> render["OpenGL · 위험영역 강조"]
     enhance --> render
 ```
+
+탐지 결과는 좌표를 원본 화면에 맞게 복원한 뒤, FSM으로 반복 확인된 대상을 표시하고 IIR smoothing으로 박스 흔들림을 줄입니다. 화면에는 Drago 톤 매핑과 CLAHE를 적용해 밝기·대비를 조정합니다.
+
+## 데이터와 모델 개선
+
+AIHub 인도보행 데이터를 직접 정리·리샘플링하고, 계단은 StairNet을 사용했습니다. 합성 저조도 데이터 중심 학습의 야간 성능을 보완하기 위해 NightOwls의 실제 야간 보행자 데이터를 추가했습니다.
+
+계단이 없는 보도에서 계단이 검출되는 문제에는 **negative 학습**을 적용했습니다. 탐지 대상이 없는 배경 이미지에 빈 라벨을 넣는 방식으로, 본선 실험에서는 AIHub 보도 배경 1,163장을 추가해 야간 계단 오탐을 **22건에서 9건으로** 줄였습니다.
+
+후속 YOLO26 실험은 학습 **10,919장**, 개발 **787장**의 동일한 분할로 비교했습니다. 클래스는 사람·계단·볼라드이며, 학습 데이터에는 빈 라벨 이미지 926장이 포함됩니다.
+
+[데이터 구성](docs/DATASET.md) · [negative 학습 기록](docs/MODEL_EXPERIMENTS.md)
 
 ## 실험 결과
 
@@ -55,27 +68,29 @@ flowchart LR
 
 주간 보도 2,146장, person·bollard 평균 mAP50과 데스크톱 추론 시간입니다. 640 조건은 50 epoch, 960 조건은 모델별 30·48 epoch입니다.
 
-- 실야간 데이터 추가 후 보행자 mAP50 **0.127 → 0.684**
-- 배경 이미지 추가 후 야간 계단 오탐 **22 → 9건** (본선 실험)
-- Galaxy A34에서 화면 표시 **29.9 FPS**, 탐지 갱신 **3.4 FPS**
+실야간 데이터 추가 후 NightOwls 평가에서 보행자 mAP50은 **0.127 → 0.684**, Recall은 **0.195 → 0.609**로 개선됐습니다. 소형 볼라드는 960 입력에서 탐지율이 높아졌지만, 추론 시간도 함께 늘었습니다.
 
-[예선 실험 표·학습 곡선·크기별 Recall](docs/PRELIMINARY_RESULTS.md) · [negative 학습 기록](docs/MODEL_EXPERIMENTS.md)
+[예선 실험 표·학습 곡선·크기별 Recall](docs/PRELIMINARY_RESULTS.md)
 
 ### 후속 YOLO26 학습
 
 NMS 후처리 병목을 줄이고 더 큰 모델을 적용하기 위해 n·s·m을 비교했습니다. 공통 조건은 **50 epochs · batch 16 · seed 0**, RTX 4080 SUPER입니다.
 
-| 모델 | 입력 | 개발셋 mAP50–95 | 학습 시간(분) |
-|---|---:|---:|---:|
-| YOLO26n | 640 | 0.59884 | 83.4 |
-| YOLO26s | 640 | 0.63822 | 88.0 |
-| YOLO26m | 640 | 0.64738 | 118.3 |
-| YOLO26n | 960 | 0.61995 | 102.3 |
-| YOLO26s | 960 | **0.66632** | 134.6 |
+![YOLO26 모델·해상도별 개발셋 정확도와 학습 시간](docs/assets/experiments/yolo26-comparison.png)
 
-각 조건은 1회 학습했으며 개발셋 best checkpoint 기준입니다. **s960이 가장 높았고**, 최종 모델은 외부 평가와 스마트폰 지연시간을 확인한 뒤 선택할 예정입니다.
+각 조건은 1회 학습했으며 개발셋 best checkpoint 기준입니다. **s960이 가장 높았고**, 640 입력에서 s와 m의 차이는 약 0.92%p였습니다. 최종 모델은 외부 평가와 스마트폰 지연시간을 확인한 뒤 선택할 예정입니다.
 
 [5개 실험 설정·결과·곡선](docs/experiments/README.md) · [데이터 구성](docs/DATASET.md) · [학습·평가 실행 방법](docs/REPRODUCE_YOLO26.md)
+
+## 실기기 측정과 착용 실증
+
+Galaxy A34에서 720p 앱을 11분씩 6회 연속 실행했습니다. 화면 표시는 **29.9 FPS**였지만 탐지 갱신은 **3.4 FPS**, 추론은 **251–263ms/회**로 느렸습니다. 화면 재생과 탐지 속도를 나눠 측정한 결과가 NMS-free 모델을 검토한 출발점이 됐습니다.
+
+Google Cardboard를 활용한 착용 환경 실증도 기획·진행했습니다. 스마트폰 구현을 바탕으로 착용형 화면을 확인하고, 향후 스마트글라스 확장 가능성을 검토했습니다.
+
+[실기기 측정 상세](docs/PRELIMINARY_RESULTS.md) · [Cardboard 시연](docs/DEMO.md)
+
+다음 작업은 **다섯 후보의 동일 조건 외부 평가 → 배포 변환 전후 정확도 확인 → 스마트폰 지연시간·연속 구동 측정**입니다.
 
 ## 팀 저장소
 
