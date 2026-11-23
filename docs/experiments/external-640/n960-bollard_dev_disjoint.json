@@ -1,0 +1,44 @@
+{
+  "run": "n960",
+  "dataset": "bollard_dev_disjoint",
+  "weights_sha256": "7654581a5f532f1774b3faff009ab964171138fecae3efe61261a9e4c0b6bb6f",
+  "data_content_sha256": "68a1e8002704519b42dd9c4dd7ae9324ed9a3395f04e3229056617c20ad55f9a",
+  "settings": {
+    "imgsz": 640,
+    "batch": 16,
+    "workers": 4,
+    "device": 0,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "rect": false,
+    "half": false,
+    "nms": false,
+    "end2end": true,
+    "plots": true,
+    "verbose": false
+  },
+  "precision_normalization": "half=False and quantize=None are equivalent in Ultralytics 8.4.106",
+  "per_class": {
+    "person": {
+      "ap50": 0.7601267640374394,
+      "ap50_95": 0.46899320954244594,
+      "precision_at_library_selected_point": 0.7981310916529096,
+      "recall_at_library_selected_point": 0.6649790887079022
+    },
+    "bollard": {
+      "ap50": 0.7110737340981397,
+      "ap50_95": 0.41395532633773396,
+      "precision_at_library_selected_point": 0.8257507134296014,
+      "recall_at_library_selected_point": 0.6071393474415546
+    }
+  },
+  "speed_ms": {
+    "preprocess": 0.7934472901709012,
+    "inference": 1.1326056594728469,
+    "loss": 0.0006056594752331937,
+    "postprocess": 0.28578172662162515
+  },
+  "source_record_sha256": "2f79264472aa0f7150e8d50966ce0b96efe88e6dbb8c6207a175700ff3f5fd64",
+  "source_kind": "new_2026-11-23_evaluation"
+}

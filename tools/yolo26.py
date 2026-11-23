@@ -172,7 +172,7 @@ def execute(args):
     if dest.exists():
         raise ValueError(f'Output already exists; choose a fresh workspace/output: {dest}')
     from ultralytics.cfg import get_cfg
-    get_cfg(overrides=settings)
+    get_cfg(overrides=dict(settings))
     print(json.dumps({'phase': args.phase, 'run': args.run, 'gpu': torch.cuda.get_device_name(0), 'weights_sha256': weight_hash, 'data_content_sha256': data_hash, 'settings': settings}, indent=2), flush=True)
     if args.check_only:
         print('Check passed. No training or evaluation started.')
@@ -194,7 +194,7 @@ def execute(args):
     else:
         metrics = model.val(**settings)
         classes = {0,1,2} if args.dataset == 'legacy_c4d' else {0} if args.dataset == 'nightowls_rec34' else {0,2}
-        per_class = {model.names[int(c)]: {'ap50': float(metrics.box.ap50[i]), 'ap50_95': float(metrics.box.ap[i])} for i,c in enumerate(metrics.box.ap_class_index) if int(c) in classes}
+        per_class = {model.names[int(c)]: {'ap50': float(metrics.box.ap50[i]), 'ap50_95': float(metrics.box.ap[i]), 'precision_at_library_selected_point': float(metrics.box.p[i]), 'recall_at_library_selected_point': float(metrics.box.r[i])} for i,c in enumerate(metrics.box.ap_class_index) if int(c) in classes}
         write(dest / 'evaluation.json', {**record, 'dataset': args.dataset, 'per_class': per_class, 'speed_ms': metrics.speed})
 
 
